@@ -1,15 +1,16 @@
-# astrology-bot
+# Astrology-Bot: Fine-tuned LLaMA-2-7B for Horoscope Chat and Tarot Reading enhanced with RAG
 
 # Motivation
 
 Scientific testing has found no evidence to support the premises or purported effects outlined in astrological traditions. The continued belief in astrology despite its lack of credibility is seen as a demonstration of low scientific literacy, although some continue to believe in it even though they are scientifically literate. Let's make fun of it!.
 
-![Venice_ast_sm](https://github.com/nogibjj/astrology-bot/assets/112578026/56211416-782d-4589-97a2-254a82d2e220)
+![stargazing-cover-image](https://github.com/nogibjj/astrology-bot/assets/112578026/b01cce31-4680-4f1c-b7c3-0a5430f1a407)
+
 
 
 # Repo Overview
 ```
-Machine Learning RAG/
+Astrology-Bot/
 │
 ├── data/                                 
 │   ├── horoscope.csv 
@@ -36,11 +37,15 @@ Machine Learning RAG/
 ```
 # Dataset
 
-## Wiki Machine Learning Corpus
+## Horoscope Reading
 
 Scrape the plain text from Astrology.com with [Astrology.com](https://www.astrology.com/horoscope/daily.html) on daily basis. 
 
 For each of the zodiac sign(`aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo`, `libra`, `scorpio`, `sagittarius`, `capricorn`, `aquarius`, `pisces`), I scraped `love`, `daily` and `work`.
+
+## Tarot
+
+Scrape the plain text of the meaning of each tarot card in different position from biddytarot.com with [biddytarot.com]([https://biddytarot.com/tarot-card-meanings/]). 
 
 # Pipeline 
 ![pipeline](https://github.com/nogibjj/astrology-bot/assets/112578026/14580f20-4e4e-49b6-a437-a74b78d9517c)
@@ -53,7 +58,6 @@ For each of the zodiac sign(`aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo
 
 ## Results
 As shown in the results, the generated context information is more readable and makes more sense after fine-tuning and RAG implementation.
-![1714098454821](https://github.com/nogibjj/astrology-bot/assets/112578026/86beb412-998f-4856-930f-8f12a9b112d6)
-![IMG65](https://github.com/nogibjj/astrology-bot/assets/112578026/c97d3abe-db34-41f1-bbed-8ba633bfc1b5)
+![1714098454821](https://github.com/nogibjj/astrology-bot/assets/112578026/86beb412-998f-4856-930f-8f12a9b112d6) ![IMG65](https://github.com/nogibjj/astrology-bot/assets/112578026/c97d3abe-db34-41f1-bbed-8ba633bfc1b5)
 
 
