@@ -43,7 +43,7 @@ Scrape the plain text from Astrology.com with [Astrology.com](https://www.astrol
 For each of the zodiac sign(`aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo`, `libra`, `scorpio`, `sagittarius`, `capricorn`, `aquarius`, `pisces`), I scraped `love`, `daily` and `work`.
 
 # Pipeline 
-![MMLU](./pics/pipeline.png)
+![pipeline](https://github.com/nogibjj/astrology-bot/assets/112578026/14580f20-4e4e-49b6-a437-a74b78d9517c)
 
 1. **Chunking**: The cleaned text data is chunked through sliding window with 200 words as window size and 50 as sliding step size.
 2. **Embed Text**: The text is embedded with BGE-Large model which is selected through [MTEB LeaderBoard](https://huggingface.co/spaces/mteb/leaderboard).
