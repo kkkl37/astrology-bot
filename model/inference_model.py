@@ -28,16 +28,15 @@ class LlaMA2:
         full_output =  self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
         # post-process the model outputs to find a proper answer
-        # answer = full_output.split('Context:')[1]
-        answer = full_output
-        # answer_prefix = "### Response: "
-        # start = answer.find(answer_prefix)
+        answer = full_output.split('Context:')[1]
+        answer_prefix = "Response to the Question:"
+        start = answer.find(answer_prefix)
 
-        # # Extract the answer
-        # if start != -1:
-        #     start += len(answer_prefix)
-        #     answer = answer[start:].strip()
-        # else:
-        #     answer = "Please try again."
+        # Extract the answer
+        if start != -1:
+            start += len(answer_prefix)
+            answer = answer[start:].strip()
+        else:
+            answer = "Please try again."
         
-        return answer
+        return answer, full_output, text

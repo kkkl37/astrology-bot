@@ -11,7 +11,7 @@ st.set_page_config(page_title="🔮💬Astrology Bot: AI Clairvoyant")
 
 
 st.title('🔮💬Astrology Bot: AI Clairvoyant')
-st.caption("🚀 A streamlit chatbot powered by Llama-2-7bs")
+st.caption("🚀 A streamlit chatbot powered by Llama-2-7b")
 
 
 menu = ["Home", "Horoscope","Tarot"]
@@ -66,7 +66,10 @@ elif choice == "Tarot":
     if prompt_tarot := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt_tarot})
         st.chat_message("user").write(prompt_tarot)
-        answer, context = get_answer(question = prompt_tarot, cards = cards_final, top_k = 5)
-        msg = f"{answer}\n I generated the answer based on those context information from Tarot.com: \n{context}"
-        st.session_state.messages.append({"role":  "AI Clairvoyant", "content": msg})
-        st.chat_message("AI Clairvoyant").write(msg)
+        answer, context = get_answer(question = prompt_tarot, cards = cards_final)
+        msg1 = answer[0].split('\",')[0].strip('\"')
+        st.session_state.messages.append({"role":  "AI Clairvoyant", "content": msg1})
+        st.chat_message("AI Clairvoyant").write(msg1)
+        msg2 = f"I generated the response based on the following context from Tarot.com: \n{context}"
+        st.session_state.messages.append({"role":  "AI Clairvoyant", "content": msg2})
+        st.chat_message("AI Clairvoyant").write(msg2)

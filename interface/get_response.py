@@ -48,7 +48,7 @@ def retrieve_context(query, cards, embedding, model, top_k):
     return context
 
 
-def ask_question(question,few_shots, context, inference_model):
+def ask_question(question, context, inference_model, cards):
     """
     Generates an answer to a given question using a few-shot learning approach and provided context.
 
@@ -60,16 +60,15 @@ def ask_question(question,few_shots, context, inference_model):
     :return: The predicted answer as a string, expected to be one word among [A, B, C, D].
     """
     
-    query = f"""
-    You are an AI Clairvoyant. The retrieved context may help answer the question.
-
-    Questions: {question}
-
-    Examples: {few_shots}
+    query = f"""You are an AI Clairvoyant. The retrieved context may help answer the question.
 
     Context: {context}
 
-    ### Response:
+    Question: {question}
+
+    Tarot Cards: {cards}
+
+    Response to the Question:
     """
     
     answer = inference_model.predict(query)
