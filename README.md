@@ -57,7 +57,14 @@ Scrape the plain text of the meaning of each tarot card in different position fr
 5. **Inference**: ``LLaMA-2-7B`` model is utilized to generate results. Due to the autoregressive nature, the generated text is post-processed and only the first answer is extracted as the final decision.
 
 ## Results
-As shown in the results, the generated context information is more readable and makes more sense after fine-tuning and RAG implementation.
+As shown in the results, the generated context information is more readable and makes more sense after fine-tuning.
 ![1714098454821](https://github.com/nogibjj/astrology-bot/assets/112578026/86beb412-998f-4856-930f-8f12a9b112d6) ![IMG65](https://github.com/nogibjj/astrology-bot/assets/112578026/c97d3abe-db34-41f1-bbed-8ba633bfc1b5)
+
+For RAG system use case: 
+![WechatIMG1674](https://github.com/nogibjj/astrology-bot/assets/112578026/d2e61752-ecd3-4dc0-a5ad-b801049949bb)![WechatIMG1675](https://github.com/nogibjj/astrology-bot/assets/112578026/b1fcfc56-4ba0-4986-a50e-bbd4243d158b)![WechatIMG1676](https://github.com/nogibjj/astrology-bot/assets/112578026/d6fee23a-0a94-4139-ba6c-c121c79706f7)
+
+
+
+
 
 
