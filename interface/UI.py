@@ -4,6 +4,8 @@ from interface.get_answer_horoscope import get_answer_horoscope
 import sys
 import os
 import random
+import streamlit.components.v1 as components
+
 sys.path.insert(1, os.getcwd())
 
 # App title
@@ -37,39 +39,108 @@ elif choice == "Horoscope":
 
 elif choice == "Tarot":
     
-    st.image('images/tarot.jpg', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-    if "messages" not in st.session_state:
-        st.session_state["messages"] = [{"role":  "AI Clairvoyant", "content": "Greetings, dear seeker. I am Estelle, the clairvoyant, and your cosmic guide. What do they call you and what is your question? Please select 3 cards below."}]
+    # st.image('images/tarot.jpg', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    # if "messages" not in st.session_state:
+    #     st.session_state["messages"] = [{"role":  "AI Clairvoyant", "content": "Greetings, dear seeker. I am Estelle, the clairvoyant, and your cosmic guide. What do they call you and what is your question? Please select 3 cards below."}]
 
-    for msg in st.session_state.messages:
-        st.chat_message(msg["role"]).write(msg["content"])
-        all_cards = ['fool', 'magician', 'high priestess', 'empress', 'emperor', 'hierophant', 'lovers', 
-                        'chariot', 'strength', 'hermit', 'wheel of fortune', 'justice', 'hanged-man', 'death',
-                        'temperance', 'devil', 'tower', 'star', 'moon', 'sun', 'judgement', 'world',
-                        'ace-of-pentacles', 'two-of-pentacles', 'three-of-pentacles', 'four-of-pentacles',
-                                                'five-of-pentacles', 'six-of-pentacles', 'seven-of-pentacles', 'eight-of-pentacles',
-                                                'nine-of-pentacles', 'ten-of-pentacles', 'page-of-pentacles', 'knight-of-pentacles',
-                                                'queen-of-pentacles', 'king-of-pentacles',
-                    'ace-of-swords', 'two-of-swords', 'three-of-swords', 'four-of-swords', 'five-of-swords',
-                                            'six-of-swords', 'seven-of-swords', 'eight-of-swords', 'nine-of-swords', 'ten-of-swords',
-                                            'page-of-swords', 'knight-of-swords', 'queen-of-swords', 'king-of-swords',
-                    'ace-of-wands', 'two-of-wands', 'three-of-wands', 'four-of-wands', 'five-of-wands',
-                                        'six-of-wands', 'seven-of-wands', 'eight-of-wands', 'nine-of-wands', 'ten-of-wands',
-                                        'page-of-wands', 'knight-of-wands', 'queen-of-wands', 'king-of-wands',
-                    'ace-of-cups', 'two-of-cups', 'three-of-cups', 'four-of-cups', 'five-of-cups',
-                                        'six-of-cups', 'seven-of-cups', 'eight-of-cups', 'nine-of-cups', 'ten-of-cups',
-                                        'page-of-cups', 'knight-of-cups', 'queen-of-cups', 'king-of-cups']
-        cards = st.multiselect("Select 3-5 cards", all_cards, key="cards")
-        position = ['upright', 'reversed']
-        cards_final = [c+'_'+position[random.randint(0, 1)] for c in cards]
+    # for msg in st.session_state.messages:
+    #     st.chat_message(msg["role"]).write(msg["content"])
+    #     all_cards = ['fool', 'magician', 'high priestess', 'empress', 'emperor', 'hierophant', 'lovers', 
+    #                     'chariot', 'strength', 'hermit', 'wheel of fortune', 'justice', 'hanged-man', 'death',
+    #                     'temperance', 'devil', 'tower', 'star', 'moon', 'sun', 'judgement', 'world',
+    #                     'ace-of-pentacles', 'two-of-pentacles', 'three-of-pentacles', 'four-of-pentacles',
+    #                                             'five-of-pentacles', 'six-of-pentacles', 'seven-of-pentacles', 'eight-of-pentacles',
+    #                                             'nine-of-pentacles', 'ten-of-pentacles', 'page-of-pentacles', 'knight-of-pentacles',
+    #                                             'queen-of-pentacles', 'king-of-pentacles',
+    #                 'ace-of-swords', 'two-of-swords', 'three-of-swords', 'four-of-swords', 'five-of-swords',
+    #                                         'six-of-swords', 'seven-of-swords', 'eight-of-swords', 'nine-of-swords', 'ten-of-swords',
+    #                                         'page-of-swords', 'knight-of-swords', 'queen-of-swords', 'king-of-swords',
+    #                 'ace-of-wands', 'two-of-wands', 'three-of-wands', 'four-of-wands', 'five-of-wands',
+    #                                     'six-of-wands', 'seven-of-wands', 'eight-of-wands', 'nine-of-wands', 'ten-of-wands',
+    #                                     'page-of-wands', 'knight-of-wands', 'queen-of-wands', 'king-of-wands',
+    #                 'ace-of-cups', 'two-of-cups', 'three-of-cups', 'four-of-cups', 'five-of-cups',
+    #                                     'six-of-cups', 'seven-of-cups', 'eight-of-cups', 'nine-of-cups', 'ten-of-cups',
+    #                                     'page-of-cups', 'knight-of-cups', 'queen-of-cups', 'king-of-cups']
+    #     cards = st.multiselect("Select 3-5 cards", all_cards, key="cards")
+    #     position = ['upright', 'reversed']
+    #     cards_final = [c+'_'+position[random.randint(0, 1)] for c in cards]
 
-    if prompt_tarot := st.chat_input():
-        st.session_state.messages.append({"role": "user", "content": prompt_tarot})
-        st.chat_message("user").write(prompt_tarot)
-        answer, context = get_answer(question = prompt_tarot, cards = cards_final)
-        msg1 = answer[0].split('\",')[0].strip('\"')
-        st.session_state.messages.append({"role":  "AI Clairvoyant", "content": msg1})
-        st.chat_message("AI Clairvoyant").write(msg1)
-        msg2 = f"I generated the response based on the following context from Tarot.com: \n{context}"
-        st.session_state.messages.append({"role":  "AI Clairvoyant", "content": msg2})
-        st.chat_message("AI Clairvoyant").write(msg2)
+    # if prompt_tarot := st.chat_input():
+    #     st.session_state.messages.append({"role": "user", "content": prompt_tarot})
+    #     st.chat_message("user").write(prompt_tarot)
+    #     answer, context = get_answer(question = prompt_tarot, cards = cards_final)
+    #     msg1 = answer[0].split('\",')[0].strip('\"')
+    #     st.session_state.messages.append({"role":  "AI Clairvoyant", "content": msg1})
+    #     st.chat_message("AI Clairvoyant").write(msg1)
+    #     msg2 = f"I generated the response based on the following context from Tarot.com: \n{context}"
+    #     st.session_state.messages.append({"role":  "AI Clairvoyant", "content": msg2})
+    #     st.chat_message("AI Clairvoyant").write(msg2)
+
+    components.html(""" 
+                    <script>
+                            // Sample card data
+                            const cards = [
+                            'fool', 'magician', 'high priestess', 'empress', 'emperor', 'hierophant', 'lovers', 
+                            'chariot', 'strength', 'hermit', 'wheel of fortune', 'justice', 'hanged-man', 'death',
+                            'temperance', 'devil', 'tower', 'star', 'moon', 'sun', 'judgement', 'world',
+                            'ace-of-cups', 'two-of-cups', 'three-of-cups', 'four-of-cups', 'five-of-cups',
+                            'six-of-cups', 'seven-of-cups', 'eight-of-cups', 'nine-of-cups', 'ten-of-cups',
+                            'page-of-cups', 'knight-of-cups', 'queen-of-cups', 'king-of-cups',
+                            'ace-of-pentacles', 'two-of-pentacles', 'three-of-pentacles', 'four-of-pentacles',
+                            'five-of-pentacles', 'six-of-pentacles', 'seven-of-pentacles', 'eight-of-pentacles',
+                            'nine-of-pentacles', 'ten-of-pentacles', 'page-of-pentacles', 'knight-of-pentacles',
+                            'queen-of-pentacles', 'king-of-pentacles',
+                            'ace-of-swords', 'two-of-swords', 'three-of-swords', 'four-of-swords', 'five-of-swords',
+                            'six-of-swords', 'seven-of-swords', 'eight-of-swords', 'nine-of-swords', 'ten-of-swords',
+                            'page-of-swords', 'knight-of-swords', 'queen-of-swords', 'king-of-swords',
+                            'ace-of-wands', 'two-of-wands', 'three-of-wands', 'four-of-wands', 'five-of-wands',
+                            'six-of-wands', 'seven-of-wands', 'eight-of-wands', 'nine-of-wands', 'ten-of-wands',
+                            'page-of-wands', 'knight-of-wands', 'queen-of-wands', 'king-of-wands'
+                            ];
+
+                            // Function to shuffle the cards list
+                            function shuffleCards() {
+                            for (let i = cards.length - 1; i > 0; i--) {
+                                const j = Math.floor(Math.random() * (i + 1));
+                                [cards[i], cards[j]] = [cards[j], cards[i]];
+                            }
+                            }
+
+                            // Function to generate card elements
+                            function generateCards() {
+                            const container = document.getElementById("cardsContainer");
+                            shuffleCards();
+                            for (let i = 0; i < 78; i++) {
+                                const card = cards[i];
+                                const cardElement = document.createElement("div");
+                                cardElement.classList.add("card");
+                                cardElement.dataset.cardName = card;
+                                cardElement.innerHTML = `
+                                <img class="back" src="tarot_img/card_back.jpg">
+                                <img class="front" src="tarot_img/${card}.jpg">
+                                <img class="reversed-front" src="tarot_img/reversed_${card}.jpg">
+                                `;
+                                cardElement.addEventListener("click", () => toggleCard(cardElement));
+                                container.appendChild(cardElement);
+                            }
+                            }
+
+                            // Function to toggle card visibility and orientation
+                            function toggleCard(cardElement) {
+                            cardElement.classList.toggle("flipped");
+                            }
+
+                            // Generate initial set of cards
+                            generateCards();
+                    </script>
+                    <link rel="stylesheet" href="/workspaces/astrology-bot/interface/styles.css">
+                    <title>Tarot Reading</title>
+                    <body>
+                    <div class="container">
+                        <h1>Choose 3-5 cards from the deck</h1>
+                        <div class="cards-container" id="cardsContainer">
+                        <!-- Card elements will be added here dynamically -->
+                        </div>
+                    </div>
+                    </body>
+                    """)
