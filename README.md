@@ -48,7 +48,8 @@ For each of the zodiac sign(`aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo
 Scrape the plain text of the meaning of each tarot card in different position from [biddytarot.com]([https://biddytarot.com/tarot-card-meanings/]). 
 
 # Pipeline 
-![pipeline](https://github.com/nogibjj/astrology-bot/assets/112578026/14580f20-4e4e-49b6-a437-a74b78d9517c)
+![llm_proj](https://github.com/nogibjj/astrology-bot/assets/112578026/149fa148-3ab6-465a-88da-49759fd7271c)
+
 
 1. **Chunking**: The cleaned text data is chunked through sliding window with 200 words as window size and 50 as sliding step size.
 2. **Embed Text**: The text is embedded with BGE-Large model which is selected through [MTEB LeaderBoard](https://huggingface.co/spaces/mteb/leaderboard).
