@@ -35,10 +35,19 @@ function generateCards() {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
     cardElement.dataset.cardName = card;
+    
+    // Generate a random number to determine whether to use regular or reversed image
+    const randomNumber = Math.random();
+    let imgSrc;
+    if (randomNumber < 0.5) {
+        imgSrc = '/workspaces/astrology-bot/data/tarot_img/${card}.jpg';
+    } else {
+        imgSrc = '/workspaces/astrology-bot/data/tarot_img/reversed_${card}.jpg';
+    }
+    
     cardElement.innerHTML = `
       <img class="back" src="tarot_img/card_back.jpg">
-      <img class="front" src="tarot_img/${card}.jpg">
-      <img class="reversed-front" src="tarot_img/reversed_${card}.jpg">
+      <img class="front" src="${imgSrc}">
     `;
     cardElement.addEventListener("click", () => toggleCard(cardElement));
     container.appendChild(cardElement);
@@ -52,3 +61,40 @@ function toggleCard(cardElement) {
 
 // Generate initial set of cards
 generateCards();
+
+
+document.getElementById('sendButton').addEventListener('click', function() {
+  // Retrieve all cards with class "card flipped"
+  var flippedCards = document.querySelectorAll('.card.flipped');
+  
+  // Extract data-card-name attribute from each flipped card
+  var cardNames = Array.from(flippedCards).map(function(card) {
+      return card.getAttribute('data-card-name');
+  });
+  
+  // Send the card names to the API
+  sendDataToAPI(cardNames);
+});
+
+function sendDataToAPI(data) {
+  // Convert the data to JSON
+  var jsonData = JSON.stringify(data);
+  
+  // Make a POST request to the API
+  fetch('https://xxxxx.com', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: jsonData
+  }).then(function(response) {
+      // Handle response from API
+      if (response.ok) {
+          console.log('Data sent successfully');
+      } else {
+          console.error('Error sending data to API');
+      }
+  }).catch(function(error) {
+      console.error('Error:', error);
+  });
+}
