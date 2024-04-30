@@ -45,7 +45,7 @@ For each of the zodiac sign(`aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo
 
 ## Tarot
 
-Scrape the plain text of the meaning of each tarot card in different position from [biddytarot.com]([https://biddytarot.com/tarot-card-meanings/]). 
+Scrape the plain text of the meaning of each tarot card in different position from [biddytarot.com](https://biddytarot.com/tarot-card-meanings/). 
 
 # Pipeline 
 ![llm_proj](https://github.com/nogibjj/astrology-bot/assets/112578026/149fa148-3ab6-465a-88da-49759fd7271c)
