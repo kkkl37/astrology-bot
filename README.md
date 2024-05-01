@@ -61,7 +61,8 @@ Scrape the plain text of the meaning of each tarot card in different position fr
 ### Horoscope
 As shown in the results, the generated context information is more readable and makes more sense after fine-tuning.
 #### Before
-![1714098454821](https://github.com/nogibjj/astrology-bot/assets/112578026/86beb412-998f-4856-930f-8f12a9b112d6) 
+![image](https://github.com/nogibjj/astrology-bot/assets/112578026/9408e234-2d58-426c-bb5d-407ef9d11093)
+
 #### After
 ![IMG65](https://github.com/nogibjj/astrology-bot/assets/112578026/c97d3abe-db34-41f1-bbed-8ba633bfc1b5)
 
