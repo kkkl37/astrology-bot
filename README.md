@@ -70,7 +70,7 @@ As shown in the results, the generated context information is more readable and 
 For RAG system use case: 
 <img width="1429" src="https://github.com/nogibjj/astrology-bot/assets/112578026/ed96d10e-fbe4-4b9e-a9a6-90167882d1ec">
 <img width="1431" src="https://github.com/nogibjj/astrology-bot/assets/112578026/abec2414-0253-49f3-98fd-f327d1acddea">
-![image](https://github.com/nogibjj/astrology-bot/assets/112578026/d17b7605-b67c-4ef9-8a70-e148b6396b86)
+![image](https://github.com/nogibjj/astrology-bot/assets/112578026/0920c3bb-e6e2-41c5-b888-52e04d508106)
 ![WechatIMG1676](https://github.com/nogibjj/astrology-bot/assets/112578026/d6fee23a-0a94-4139-ba6c-c121c79706f7)
 
 
