@@ -58,6 +58,7 @@ Scrape the plain text of the meaning of each tarot card in different position fr
 5. **Inference**: ``LLaMA-2-7B`` model is utilized to generate results. Due to the autoregressive nature, the generated text is post-processed and only the first answer is extracted as the final decision.
 
 ## Results
+[Play around by yourself!](https://astrology-bot-wuhumwbtzdmsjjq8xhrg58.streamlit.app) Deployed with Streamlit Community Cloud!
 ### Horoscope
 As shown in the results, the generated context information is more readable and makes more sense after fine-tuning.
 #### Before
