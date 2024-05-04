@@ -22,6 +22,7 @@ choice = st.sidebar.selectbox("Menu", menu)
 if choice == "Home":
     st.subheader("Home")
     st.write("This is the home page.")
+    st.write("You can choose horoscope or tarot on the LFS.")
 elif choice == "Horoscope":
     st.image('./images/astrology-horoscope-circle.jpg.webp', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     if "messages" not in st.session_state:
