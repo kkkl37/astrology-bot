@@ -22,6 +22,7 @@ choice = st.sidebar.selectbox("Menu", menu)
 if choice == "Home":
     st.subheader("Home")
     st.write("This is the home page.")
+    st.write("You can choose horoscope or tarot on the LFS.")
 elif choice == "Horoscope":
     st.image('./images/astrology-horoscope-circle.jpg.webp', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     if "messages" not in st.session_state:
@@ -225,7 +226,7 @@ elif choice == "Tarot":
                                 'page-of-cups', 'knight-of-cups', 'queen-of-cups', 'king-of-cups']
     
     all_cards = [c+'_'+'upright' for c in all_cards] + [c+'_'+'reversed' for c in all_cards]
-    cards_final = st.multiselect("Tell me the cards you have drawn with corresponding positions", all_cards, key="cards")
+    cards_final = st.multiselect("Tell me the cards you have drawn with corresponding positions", all_cards, placeholder="Type in the card you just draw or select", key="cards")
 
     if prompt_tarot := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt_tarot})
