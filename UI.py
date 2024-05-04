@@ -1,5 +1,5 @@
 import streamlit as st
-from inference import get_answer
+from interface.inference import get_answer
 from interface.get_answer_horoscope import get_answer_horoscope
 import sys
 import os
@@ -33,7 +33,7 @@ elif choice == "Horoscope":
         st.session_state.messages.append({"role": "user", "content": prompt_horoscope})
         st.chat_message("user").write(prompt_horoscope)
         answer_horoscope = get_answer_horoscope(question = prompt_horoscope)
-        msg_horoscope = f"The answer of your question is \n {answer_horoscope}."
+        msg_horoscope = answer_horoscope
         st.session_state.messages.append({"role":  "AI Clairvoyant", "content": msg_horoscope})
         st.chat_message("AI Clairvoyant").write(msg_horoscope)
 
