@@ -25,7 +25,7 @@ if choice == "Home":
 elif choice == "Horoscope":
     st.image('./images/astrology-horoscope-circle.jpg.webp', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     if "messages" not in st.session_state:
-        st.session_state["messages"] = [{"role":  "AI Clairvoyant", "content": "Greetings, dear seeker. I am Estelle, the clairvoyant, and your cosmic guide. What do they call you and what is your question?"}]
+        st.session_state["messages"] = [{"role":  "AI Clairvoyant", "content": "Greetings, dear seeker. I am Estelle, the clairvoyant, and your cosmic guide. What do they call you and what is your question? For example: What is the work horoscope for Aquiarius today?"}]
         
     for msg in st.session_state.messages:
         st.chat_message(msg["role"]).write(msg["content"])
@@ -41,7 +41,7 @@ elif choice == "Tarot":
     
     # st.image('images/tarot.jpg', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     if "messages" not in st.session_state:
-        st.session_state["messages"] = [{"role":  "AI Clairvoyant", "content": "Greetings, dear seeker. I am Estelle, the clairvoyant, and your cosmic guide. What do they call you and what is your question? Please select 3 cards below."}]
+        st.session_state["messages"] = [{"role":  "AI Clairvoyant", "content": "Greetings, dear seeker. I am Estelle, the clairvoyant, and your cosmic guide. What do they call you and what is your question? Please select 3-5 cards below and tell me the question you want to ask. For example, Crystal, 25 year-old, single, who just left a company. She wanted to ask a question what she should do for her next job?"}]
 
     for msg in st.session_state.messages:
         st.chat_message(msg["role"]).write(msg["content"])
@@ -225,7 +225,7 @@ elif choice == "Tarot":
                                 'page-of-cups', 'knight-of-cups', 'queen-of-cups', 'king-of-cups']
     
     all_cards = [c+'_'+'upright' for c in all_cards] + [c+'_'+'reversed' for c in all_cards]
-    cards_final = st.multiselect("Tell me the cards you have drawn", all_cards, key="cards")
+    cards_final = st.multiselect("Tell me the cards you have drawn with corresponding positions", all_cards, key="cards")
 
     if prompt_tarot := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt_tarot})
