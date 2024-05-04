@@ -225,7 +225,7 @@ elif choice == "Tarot":
                                 'page-of-cups', 'knight-of-cups', 'queen-of-cups', 'king-of-cups']
     
     all_cards = [c+'_'+'upright' for c in all_cards] + [c+'_'+'reversed' for c in all_cards]
-    cards_final = st.multiselect("Tell me the cards you have drawn", all_cards, key="cards")
+    cards_final = st.multiselect("Tell me the cards you have drawn with corresponding positions", all_cards, key="cards")
 
     if prompt_tarot := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt_tarot})
