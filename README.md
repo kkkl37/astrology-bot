@@ -45,10 +45,11 @@ For each of the zodiac sign(`aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo
 
 ## Tarot
 
-Scrape the plain text of the meaning of each tarot card in different position from [biddytarot.com]([https://biddytarot.com/tarot-card-meanings/]). 
+Scrape the plain text of the meaning of each tarot card in different position from [biddytarot.com](https://biddytarot.com/tarot-card-meanings/). 
 
 # Pipeline 
-![pipeline](https://github.com/nogibjj/astrology-bot/assets/112578026/14580f20-4e4e-49b6-a437-a74b78d9517c)
+![llm_proj](https://github.com/nogibjj/astrology-bot/assets/112578026/149fa148-3ab6-465a-88da-49759fd7271c)
+
 
 1. **Chunking**: The cleaned text data is chunked through sliding window with 200 words as window size and 50 as sliding step size.
 2. **Embed Text**: The text is embedded with BGE-Large model which is selected through [MTEB LeaderBoard](https://huggingface.co/spaces/mteb/leaderboard).
@@ -57,11 +58,20 @@ Scrape the plain text of the meaning of each tarot card in different position fr
 5. **Inference**: ``LLaMA-2-7B`` model is utilized to generate results. Due to the autoregressive nature, the generated text is post-processed and only the first answer is extracted as the final decision.
 
 ## Results
+### Horoscope
 As shown in the results, the generated context information is more readable and makes more sense after fine-tuning.
-![1714098454821](https://github.com/nogibjj/astrology-bot/assets/112578026/86beb412-998f-4856-930f-8f12a9b112d6) ![IMG65](https://github.com/nogibjj/astrology-bot/assets/112578026/c97d3abe-db34-41f1-bbed-8ba633bfc1b5)
+#### Before
+![image](https://github.com/nogibjj/astrology-bot/assets/112578026/9408e234-2d58-426c-bb5d-407ef9d11093)
 
+#### After
+![IMG65](https://github.com/nogibjj/astrology-bot/assets/112578026/c97d3abe-db34-41f1-bbed-8ba633bfc1b5)
+
+### Tarot
 For RAG system use case: 
-![WechatIMG1674](https://github.com/nogibjj/astrology-bot/assets/112578026/d2e61752-ecd3-4dc0-a5ad-b801049949bb)![WechatIMG1675](https://github.com/nogibjj/astrology-bot/assets/112578026/b1fcfc56-4ba0-4986-a50e-bbd4243d158b)![WechatIMG1676](https://github.com/nogibjj/astrology-bot/assets/112578026/d6fee23a-0a94-4139-ba6c-c121c79706f7)
+<img width="1429" src="https://github.com/nogibjj/astrology-bot/assets/112578026/ed96d10e-fbe4-4b9e-a9a6-90167882d1ec">
+<img width="1431" src="https://github.com/nogibjj/astrology-bot/assets/112578026/abec2414-0253-49f3-98fd-f327d1acddea">
+![image](https://github.com/nogibjj/astrology-bot/assets/112578026/0920c3bb-e6e2-41c5-b888-52e04d508106)
+![WechatIMG1676](https://github.com/nogibjj/astrology-bot/assets/112578026/d6fee23a-0a94-4139-ba6c-c121c79706f7)
 
 
 
