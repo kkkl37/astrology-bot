@@ -24,7 +24,7 @@ if choice == "Home":
     st.write("This is the home page.")
     st.write("You can choose horoscope or tarot on the LFS.")
 elif choice == "Horoscope":
-    st.image('./images/astrology-horoscope-circle.jpg.webp', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    st.image('https://github.com/nogibjj/astrology-bot/raw/main/images/astrology-horoscope-circle.jpg.webp', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     if "messages" not in st.session_state:
         st.session_state["messages"] = [{"role":  "AI Clairvoyant", "content": "Greetings, dear seeker. I am Estelle, the clairvoyant, and your cosmic guide. What do they call you and what is your question? For example: What is the work horoscope for Aquiarius today?"}]
         
